@@ -76,9 +76,10 @@ function addPrefixer (item, titleName) {
         title += '#'
     }
     if (fs.lstatSync(item.path.replace('.', root)).isFile() && path.extname(item.path) === '.md') {
-        return `[${titleName.replace(/.md/, '')}](${item.path.replace(root, '.')})\n`
+        let newPath = encodeURI(item.path.replace(root, '.'))   // 因为可能会含有中文、空格等字符，故统一编码
+        return `- [${titleName.replace(/.md/, '')}](${newPath})  \n`
     } else {
-        return `${title} ${titleName}\n`
+        return `${title} ${titleName}  \n`
     }
 
 }
