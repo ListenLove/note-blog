@@ -4,7 +4,8 @@
   "description": "## 笔记（Note）",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node js/main.js"
   },
   "repository": {
     "type": "git",

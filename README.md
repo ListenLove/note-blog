@@ -16,10 +16,6 @@
 ### Vue
 [Vue基础知识（一）](./Note/Vue/Vue基础知识（一）.md)
 [Vue基础知识（二）](./Note/Vue/Vue基础知识（二）.md)
-
 ### jQuery
-
 [jQuery Ajax 学习笔记](./Note/jQuery/jQuery Ajax 学习笔记.md)
 [jQuery 核心编程](./Note/jQuery/jQuery 核心编程.md)
-[jQuery 框架原理](./Note/jQuery/jQuery 框架原理.md)
-
