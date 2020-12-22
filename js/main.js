@@ -45,15 +45,17 @@ fs.readdir(root, function (err, files) {
     }
 })
 
+/**
+ * 将遍历目录整理得到的数据按 渲染 readme 文档的格式写入指定流
+ * @param writeStream   指定流对象
+ * @param contentList   整理获取博客和笔记的目录信息
+ */
 function parseDataToContent (writeStream, contentList) {
     let content = ''
     let map = []
     for (let i = 0; i < contentList.length; i++) {
         let dir = path.dirname(contentList[i].path)
         let baseName = path.basename(contentList[i].path)
-        // console.log(baseName)
-        // console.log('===============')
-        // console.log(dir)
         let title = dir.replace(/[\.][\/]?/m, '')
         if (title === '') {     // Blog 或者 Note 这样的顶层目录
             title = addPrefixer(contentList[i], baseName)
@@ -67,6 +69,12 @@ function parseDataToContent (writeStream, contentList) {
     writeStream.write(content)
 }
 
+/**
+ * 将目录格式或者文章链接返回
+ * @param item  对应目录或文件对象
+ * @param titleName     标题名
+ * @return {string}
+ */
 function addPrefixer (item, titleName) {
     let title = ''
     if (!(item.index && item.path)) {

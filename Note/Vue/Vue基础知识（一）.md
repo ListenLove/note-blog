@@ -234,9 +234,11 @@ directives: {
 ### 过滤器 filter
 
 #### 自定义全局过滤器
+
 `Vue.filter("过滤器名称", 过滤器处理函数)；`
 
 #### 使用全局过滤器
+
 1. `{{msg | 过滤器名称}}`
 2. `:value="msg | 过滤器名称"`
 
@@ -255,6 +257,49 @@ filters: {
     'formartStr': function (value) {}
 }
 ```
+
+### watch 属性
+
+`watch`属性专门用于监听数据变化, 只要数据发生了变化, 就会自动调用对应数据的回调方法。
+
+#### watch属性监听路由地址的变化
+
+在企业开发中我们可以通过`watch`来判断源界面。
+
+```js
+watch: {
+    num1: function (newValue, oldValue) {
+        this.result = parseFloat(this.num1) + parseFloat(this.num2)
+        console.log(newValue, oldValue)
+    },
+    num2: function (newValue, oldValue) {
+        this.result = parseFloat(this.num1) + parseFloat(this.num2)
+        console.log(newValue, oldValue)
+    },
+    "$route.path": function (newValue, oldValue) {
+        console.log(newValue, oldValue)
+    }
+},
+```
+
+**"$route.path"**监听路由地址变化。
+
+### ref
+
+不推荐使用原生的语法获取DOM, 在Vue中如果想要拿到DOM元素，可以通过`ref`来获取。
+
+**基本步骤**
+
+```html
+<one id="myOne" ref="myOne"></one>	<!--该  组件通过 ref 属性注册名为 myOne 的元素进入到 全局 $refs 对象中等待被使用。-->
+<p ref="myp">我是原生的DOM</p>		<!--该 p 元素通过 ref 属性注册名为 myp 的元素进入到 全局 $refs 对象中等待被使用。-->
+```
+
+**NOTE！**
+
+`ref`如果是添加给元素的元素, 那么拿到的就是元素的元素。
+
+`ref`如果是添加给自定义的组件, 那么拿到的就是自定义的组件。
 
 ## 过渡动画
 
@@ -487,6 +532,11 @@ components: {
    例如: `传递时: parent-name="name" ->  接收时: props: ["parentName"]`
 3. **使用传递的方法时也只能用"短横线分隔命名"**
    `@parent-say="say"  -> this.$emit("parent-say");`
+
+### Vue 组件的渲染方式
+
+1. 通过组件标签的方式，将组件渲染到控制区域的标签位置。
+2. 通过控制区域的`render`属性，调用`createElement`函数，将控制区域替换为指定组件。
 
 ## 插槽 slot
 

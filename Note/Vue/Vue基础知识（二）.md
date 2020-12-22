@@ -60,7 +60,7 @@
    }
    ```
 
-   **注意点:** 在执行mutations中定义的方法的时候, 系统会自动给这些方法传递一个state参， state中就保存了共享的数据。
+   **注意点:** 在执行mutations中定义的方法的时候, 系统会自动给这些方法传递一个state参数， state中就保存了共享的数据。
 
 2. 使用`$store.commit`方法调用。例如：
 
@@ -222,3 +222,286 @@ const routes = [
 ```
 
 **NOTE！**如果是嵌套路由(子路由), 那么不用写一级路径的地址, 并且也不用写斜杠`/`
+
+### 命名视图
+
+和匿名插槽类似，路由地址匹配之后多个`router-view`会提供同样的视图显示出口，但通过指定不同的命名属性，`router-view`将会提供指定命名的视图出口。
+
+```html
+<router-view name="name1"></router-view>	<!-- 在路径规则对象中的 components 属性定义命名值 components: { name1: one // one 视图赋给 name1 key}-->
+```
+
+## Vue 生命周期
+
+<img src="../../../practice/CODE/Vue核心基础/68-Vue-生命周期方法/images/lifecycle.png" alt="Vue 生命周期图示" style="zoom: 50%;" />
+
+### 创建期间的生命周期方法
+
+​    `beforeCreate`: 仅仅表示Vue实例刚刚被创建出来,此时此刻还没有初始化Vue实例中的数据和方法, 所以访问Vue实例中保存的数据和方法。
+​    `created`: 最早能够访问Vue实例中保存的数据和方法的地方。
+​    `beforeMount`:Vue已经编译好了模板, 但是还没有将模板渲染到界面上。
+​    `mounted`:Vue已经完成了模板的渲染, 表示可以拿到界面上渲染之后的内容。
+
+### 运行期间的生命周期方法
+
+​    `beforeUpdate`: 表示Vue实例中保存的数据已被修改，**注意点**：只有保存的数据被修改了才会调用beforeUpdate, 否则不会调用；在调用beforeUpdate的时候, 数据已经更新了, 但是界面还没有更新。
+​    `updated`: 表示Vue实例中保存的数据已被修改, 并且界面也同步了修改的数据。
+
+### 销毁期间的生命周期方法
+
+​    `beforeDestroy`:表示当前组件即将被销毁，**注意点**: 只要组件不被销毁, 那么`beforeDestroy`就不会调用；`beforeDestroy`是我们最后能够访问到组件数据和方法的生命周期方法。
+​    `destroyed`：表示当前组件已经被销毁，注意点: 只要组件不被销毁, 那么`destroyed`就不会调用；不要在`destroyed`生命周期方法中再去操作组件的数据和方法。
+
+## Vue-CLI
+
+#### 基本使用
+
+[Vue-CLI使用指南](https://cli.vuejs.org/zh/guide/)
+
+1. 安装
+
+   `npm install -g @vue/cli`
+
+2. 检查是否安装成功
+
+   `vue —version`：输出为：`@vue/cli 4.5.9`类似信息时表明安装成功
+
+3. 开始一个项目名为'my-project'的新项目
+
+   ` vue create my-project`
+
+4. 根据需要选择`vue`自动提供的配置选项
+
+5. 根据手动配置选项及其他配置选择生成如下项目结构：
+
+   > └── my-project	根目录
+   >
+   > ​	｜—— node_modules 	存储了依赖的相关的包
+   >
+   > ​    ├── public	               静态资源都会被简单的复制,不经过webpack,需要通过绝对路径来引用
+   > ​    └── src		               代码文件夹
+   > ​        ├── assets	           存储项目中自己的一些静态文件(图片/字体等)
+   > ​        ├── components	 存储项目中的自定义组件(小组件,公共组件)
+   > ​        ├── router				存储VueRouter相关文件
+   > ​        ├── store				 存储Vuex相关文件
+   > ​        └── views			   存储项目中的自定义组件(大组件,页面级组件,路由级别组件)
+   >
+   > ​		|----App.vue			    根组件
+   > ​		|----main.js			      入口js文件	
+
+6. 在项目根目录下运行：
+
+   `npm run serve`
+
+7. build 构建项目：
+
+   `npm run build`
+
+### 修改 Vue-CLI 配置
+
+Vue-CLI对webpack原有的属性进行了一层封装。
+
+1.  如果需要修改webpack的配置可以在项目中新建一个`vue.config.js`的文件；
+
+2. 查询Vue-CLI的封装是否能够满足需求，
+
+   1. 如果可以满足需求, 那么就使用`Vue-CLI`（[配置参考](https://cli.vuejs.org/zh/config/)）封装的属性来修改`webpack`的配置
+
+   2. 如果不可以满足需求, 那么可以通过`configureWebpack`的属性来编写原生的webpack配置
+
+      ```js
+      // vue.config.js
+      const webpack = require('webpack')
+      module.exports = {
+        // 选项...
+        outputDir: 'bundle',	// 封装的 outputDir 属性
+        configureWebpack: {		// 原生的 webpack 配置编写处
+          plugins: [
+            new webpack.BannerPlugin({
+              banner: 'hello, world www.GitHub.com'
+            })
+          ]
+        }
+      }
+      ```
+
+
+
+## [ElementUI](https://element.eleme.cn/#/zh-CN)
+
+### 基本用法
+
+1. npm 安装
+   推荐使用 npm 的方式安装，它能更好地和 webpack 打包工具配合使用。
+
+   `npm i element-ui -S`
+
+2. [快速上手](https://element.eleme.cn/#/zh-CN/component/quickstart)
+
+   **完整引入**
+
+   在 main.js 中写入以下内容：
+
+   ```javascript
+   import Vue from 'vue';
+   import ElementUI from 'element-ui';
+   import 'element-ui/lib/theme-chalk/index.css';
+   import App from './App.vue';
+   
+   Vue.use(ElementUI);
+   
+   new Vue({
+     el: '#app',
+     render: h => h(App)
+   });
+   ```
+
+   以上代码便完成了 Element 的引入。需要注意的是，**样式文件需要单独引入**。
+
+   **按需引入**
+
+   借助 [babel-plugin-component](https://github.com/QingWei-Li/babel-plugin-component)，我们可以只引入需要的组件，以达到减小项目体积的目的。
+
+   首先，安装 babel-plugin-component：
+
+   ```bash
+   npm install babel-plugin-component -D
+   ```
+
+   然后，将 .babelrc 修改为：
+
+   ```json
+   {
+     "presets": [["es2015", { "modules": false }]],	/* Vue-CLI设置该属性的默认值，不需要再修改*/
+     "plugins": [
+       [
+         "component",
+         {
+           "libraryName": "element-ui",
+           "styleLibraryName": "theme-chalk"
+         }
+       ]
+     ]
+   }
+   ```
+
+   接下来，如果你只希望引入部分组件，比如 Button 和 Select，那么需要在 main.js 中写入以下内容：
+
+   ```javascript
+   import Vue from 'vue';
+   import { Button, Select } from 'element-ui';
+   import App from './App.vue';
+   
+   Vue.component(Button.name, Button);
+   Vue.component(Select.name, Select);
+   /* 或写为
+    * Vue.use(Button)
+    * Vue.use(Select)
+    */
+   
+   new Vue({
+     el: '#app',
+     render: h => h(App)
+   });
+   ```
+
+   完整组件列表和引入方式（完整组件列表以 [components.json](https://github.com/ElemeFE/element/blob/master/components.json) 为准）
+
+3. 在[组件](https://element.eleme.cn/#/zh-CN/component)中选取适合的样式、复制对应代码使用框架
+
+## [MintUI](https://mint-ui.github.io/#!/zh-cn)
+
+MintUI基本使用与 ElementUI 的使用相似，此处不在赘述。
+
+[MIntUI 快速上手](https://mint-ui.github.io/docs/#/zh-cn/quickstart)
+
+[特别适于制作移动端电商平台页面的有赞UI框架 Vant](https://youzan.github.io/vant/#/zh-CN/)
+
+## Vue 插件使用
+
+### [开发插件](https://cn.vuejs.org/v2/guide/plugins.html#开发插件)
+
+> 插件通常用来为 Vue 添加全局功能。插件的功能范围没有严格的限制——一般有下面几种：
+>
+> 1. 添加全局方法或者 property。如：[vue-custom-element](https://github.com/karol-f/vue-custom-element)
+> 2. 添加全局资源：指令/过滤器/过渡等。如 [vue-touch](https://github.com/vuejs/vue-touch)
+> 3. 通过全局混入来添加一些组件选项。如 [vue-router](https://github.com/vuejs/vue-router)
+> 4. 添加 Vue 实例方法，通过把它们添加到 `Vue.prototype` 上实现，实例方法名以美元符`$`开头。
+> 5. 一个库，提供自己的 API，同时提供上面提到的一个或多个功能。如 [vue-router](https://github.com/vuejs/vue-router)
+
+### 使用 Component 方法
+
+1. 项目`src`目录下新建`plugins`目录，在`plugins`中再新建插件名目录，编写相应的`vue`组件和`index.js`（插件核心文件）。
+
+2. 在插件`index.js`文件中中必须使用`install`方法注册当前的插件，之后在根组件中才能使用`Vue.use`方法全局使用封装好的插件。
+
+   ```js
+   import Vue from 'vue'
+   import pluginName from './pluginName'		// 此处引入的还是 Vue Component 文件
+   
+   export default {
+     install: function () {
+       Vue.component(pluginName.name, pluginName)
+     }
+   }
+   ```
+
+3. 在项目运行入口文件中（一般是`main.js`）进行注册：
+
+   ```js
+   import pluginName from './plugins/pluginName/index'	// 此处引入的插件核心文件 index.js
+   Vue.use(pluginName)		// 注册插件，之后即可全局使用该插件
+   ```
+
+### 组件生成构造函数方法
+
+```js
+install: function (Vue, Options) {
+    // Vue.component(Loading.name, Loading)
+
+    // 1.根据我们的组件生成一个构造函数
+    let LoadingContructor = Vue.extend(Loading)
+    // 2.根据构造函数创建实例对象
+    let LoadingInstance = new LoadingContructor()
+    // 3.随便创建一个标签(元素)
+    let oDiv = document.createElement('div')
+    // 4.将创建好的标签添加到界面上
+    document.body.appendChild(oDiv)
+    // 5.将创建好的实例对象挂载到创建好的元素上
+    LoadingInstance.$mount(oDiv)
+
+    // console.log(Options)
+    // console.log(LoadingInstance.title)
+    // 添加初始化值
+    if (Options && Options.title !== null && Options.title !== undefined) {
+      LoadingInstance.title = Options.title
+    }
+    // 添加全局方法
+    Vue.showLoading = function () {
+      LoadingInstance.isShow = true
+    }
+    Vue.hiddenLoading = function () {
+      LoadingInstance.isShow = false
+    }
+    // 添加实例方法，注意实例方法名必须以美元符 $ 开头
+    Vue.prototype.$showLoading = function () {
+      LoadingInstance.isShow = true
+    }
+    Vue.prototype.$hiddenLoading = function () {
+      LoadingInstance.isShow = false
+    }
+  }
+```
+
+
+
+ 
+
+
+
+
+
+
+
+
+
