@@ -137,4 +137,3 @@ function parseToList (dir, index = 2, contents = []) {
     }
     return contents
 }
-

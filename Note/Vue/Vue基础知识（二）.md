@@ -438,7 +438,7 @@ MintUI基本使用与 ElementUI 的使用相似，此处不在赘述。
    ```js
    import Vue from 'vue'
    import pluginName from './pluginName'		// 此处引入的还是 Vue Component 文件
-   
+    
    export default {
      install: function () {
        Vue.component(pluginName.name, pluginName)

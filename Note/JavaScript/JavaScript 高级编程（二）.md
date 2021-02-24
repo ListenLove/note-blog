@@ -107,7 +107,7 @@ function throttle(fn, delay) {
 
 ### Cookie、 SessionStorage、LocalStorage区别
 
-    
+
     无论通过以上那种方式存储的数据, 切记不能将敏感数据直接存储到本地
 
 |          | Cookie                                                       | SessionStorage                                               | LocalStorage                           |
@@ -729,7 +729,7 @@ function* gen() {
 
 3. 用同步的流程来表示异步的操作
 
-## `async` && `await`
+## async && await
 
 ### async函数
 ​    `async`函数是ES8中新增的一个函数, 用于定义一个异步函数
