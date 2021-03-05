@@ -36,4 +36,4 @@ jobs:
         npm run start
         git add .
         git commit -m "生成项目主页 README.md 文档至主页"
-        git push --force --quiet "https://$GH_TOKEN@$REPO" master:master
+        git push --force --quiet "https://$GH_TOKEN@$REPO" origin master
