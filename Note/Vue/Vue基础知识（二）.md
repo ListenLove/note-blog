@@ -66,15 +66,15 @@
 
    ```js
    methods: {
-     									add(){
-                           // this.$store.state.count = this.$store.state.count + 1;
-                           this.$store.commit("mAdd");		// 参数为 mutations 中定义的函数名
-                       },
-                       sub(){
-                           // this.$store.state.count = this.$store.state.count - 1;
-                           this.$store.commit("mSub");
-                       }
-                   }
+       add(){
+           // this.$store.state.count = this.$store.state.count + 1;
+           this.$store.commit("mAdd");		// 参数为 mutations 中定义的函数名
+       },
+       sub(){
+           // this.$store.state.count = this.$store.state.count - 1;
+           this.$store.commit("mSub");
+       }
+   }
    ```
 
 ### Vuex 属性
@@ -106,7 +106,7 @@ getters: {
 
 ## Vue Router
 
-`Vue Router`和`v-if/v-show`一样, 是用来切换组件的显示的；`v-if/v-show`是标记来切换`(true/false)``Vue Router`用哈希来切换(#/xxx)；比`v-if/v-show`强大的是`Vue Router`不仅仅能够切换组件的显示, 还能够在**切换的时候传递参数**。
+`Vue Router`和`v-if/v-show`一样, 是用来切换组件的显示的；`v-if/v-show`是标记来切换`(true/false)`.`Vue Router`是用哈希来切换(#/xxx)；比`v-if/v-show`强大的是`Vue Router`不仅仅能够切换组件的显示, 还能够在**切换的时候传递参数**。
 
 ### 基本使用
 

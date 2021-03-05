@@ -13,10 +13,12 @@ const path = require('path')
 const fs = require('fs')
 
 const md = 'README.md'    // readme 文件
+const info = 'info.md'    // 项目说明 文档，会添加到 README.md 文档底部
 
 const BlogNote = ['Blog', 'Note']
 const root = path.resolve(__dirname, '..')  // 定位到项目根目录
 const mdPath = path.join(root, md)  // readme 文件路径
+const infoPath = path.join(root, info)  // info.md 文件路径
 
 // let i = fs.openSync(path.join(root, 'test.md'), 'ax+')
 let mdWriteStream       //  readme 文件写入流对象
@@ -29,7 +31,7 @@ fs.exists(mdPath, function (exists) {
 })
 fs.readdir(root, function (err, files) {
     if (err) {
-        throw new Error('读取根目录错误，', err)
+        throw new Error('读取根目录错误，' + err)
     } else {
         // 读取 Note 目录 和 Blog 目录
         for (let file of files) {
@@ -42,6 +44,14 @@ fs.readdir(root, function (err, files) {
                 parseDataToContent(mdWriteStream, parseContent)
             }
         }
+        // 添加 info.md 的内容
+        try {
+            const data = fs.readFileSync(infoPath, 'utf8')
+            mdWriteStream.write(data)
+        } catch (err) {
+            throw new Error("读取 info.md 文档错误!" + err)
+        }
+
     }
 })
 
@@ -50,7 +60,7 @@ fs.readdir(root, function (err, files) {
  * @param writeStream   指定流对象
  * @param contentList   整理获取博客和笔记的目录信息
  */
-function parseDataToContent (writeStream, contentList) {
+function parseDataToContent(writeStream, contentList) {
     let content = ''
     let map = []
     for (let i = 0; i < contentList.length; i++) {
@@ -75,7 +85,7 @@ function parseDataToContent (writeStream, contentList) {
  * @param titleName     标题名
  * @return {string}
  */
-function addPrefixer (item, titleName) {
+function addPrefixer(item, titleName) {
     let title = ''
     if (!(item.index && item.path)) {
         throw new Error('传入内容对象不符合解析规范')
@@ -98,7 +108,7 @@ function addPrefixer (item, titleName) {
  * @param targetList    目标文件列表或目录列表
  * @return {boolean}
  */
-function isTarget (source, targetList) {
+function isTarget(source, targetList) {
     if (targetList.find(function (value) {
         return value === source
     })) {
@@ -116,7 +126,7 @@ function isTarget (source, targetList) {
  * @param contents 解析的返回内容
  * @return {*[]}
  */
-function parseToList (dir, index = 2, contents = []) {
+function parseToList(dir, index = 2, contents = []) {
     let record = {
         path: dir.replace(root, '.'),  // 替换为相对于根目录的相对路径
         index: index,
