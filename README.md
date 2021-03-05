@@ -24,3 +24,14 @@
 - [jQuery 核心编程](./Note/jQuery/jQuery%20%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B.md)  
 ### 基础知识  
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
+## 说明
+此项目会根据用户在`Blog`和`Note`之中按目录分类相关的文档和笔记，通过编写的`node`脚本综合渲染在在项目主页目录中。适合喜欢用纯`markdown`模式下编写和管理博客笔记的同学。
+- [] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，将会提供自动打包部署到`Github Pages`的功能。
+### 注意
+  1. nodeJS脚本只会查找`/Blog`目录和`/Note`目录的内容
+  2. 使用`Github Actions`代替人工运行脚本，需要的同学编写完毕之后，直接 push 即可哦！
+  3. 每篇文章都会以`*.md`文件的文件名做标题，不会包含文件扩展名。
+  4. 考虑将项目`issue`作为自己的解决各种程序bug的收集库，未来再以`issue`为基础，一并整合进入`README.MD`。
+  5. `info.md`用于说明，会自动添加到`README.MD`文档底部。
+  
+以上。
