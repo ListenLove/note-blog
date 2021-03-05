@@ -33,5 +33,7 @@ jobs:
       run: |
         git config --global user.name $GIT_NAME
         git config --global user.email $GIT_EMAIL
+        npm run start
+        git add .
         git commit -m "生成项目主页 README.md 文档至主页"
         git push --force --quiet "https://$GH_TOKEN@$REPO" master:master
