@@ -152,7 +152,7 @@ getters: {
 
 5. 修改URL哈希值
 
-6. 通过<router-view>标签渲染匹配的组件
+6. 通过`<router-view>`标签渲染匹配的组件
 
 #### router-link
 
@@ -184,7 +184,7 @@ const routes = [{
     path: '/',
     redirect: '/one'		// 重定向的目标 URL
 },
-                ]
+               ]
 ```
 
 ### router 传递参数
@@ -208,7 +208,7 @@ const routes = [
         component: one,
         children:[
             {
-                // 注意点: 如果是嵌套路由(子路由), 那么不用写一级路径的地址, 并且也不用写/
+                // 注意点: 如果是嵌套路由(子路由), 那么不用写一级路径的地址, 并且也不用写'/'
                 path: "onesub1",
                 component: onesub1
             },
@@ -237,7 +237,7 @@ const routes = [
 
 ### 创建期间的生命周期方法
 
-​    `beforeCreate`: 仅仅表示Vue实例刚刚被创建出来,此时此刻还没有初始化Vue实例中的数据和方法, 所以访问Vue实例中保存的数据和方法。
+​    `beforeCreate`: 仅仅表示Vue实例刚刚被创建出来,此时此刻还没有初始化Vue实例中的数据和方法, 所以无法访问Vue实例中保存的数据和方法。
 ​    `created`: 最早能够访问Vue实例中保存的数据和方法的地方。
 ​    `beforeMount`:Vue已经编译好了模板, 但是还没有将模板渲染到界面上。
 ​    `mounted`:Vue已经完成了模板的渲染, 表示可以拿到界面上渲染之后的内容。
