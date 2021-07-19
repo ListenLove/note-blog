@@ -1,5 +1,6 @@
 ## Blog  
 - [常用工具合集](./Blog/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86.md)  
+- [软件构思IDEA](./Blog/%E8%BD%AF%E4%BB%B6%E6%9E%84%E6%80%9DIDEA.md)  
 ## Note  
 ### HTML5  
 - [CSS3](./Note/HTML5/CSS3.md)  
@@ -30,11 +31,9 @@
 ### 基础知识  
 - [Linux基础与使用](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E4%BD%BF%E7%94%A8.md)  
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
-### 机器学习  
-- [机器学习的学习路线](./Note/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF.md)  
 ## 说明
 此项目会根据用户在`Blog`和`Note`之中按目录分类相关的文档和笔记，通过编写的`node`脚本综合渲染在在项目主页目录中。适合喜欢用纯`markdown`模式下编写和管理博客笔记的同学。
-- [ ] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，将在后续思考提供自动打包部署到`Github Pages`的功能。
+- [] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，将会提供自动打包部署到`Github Pages`的功能。
 ### 注意
   1. nodeJS脚本只会查找`/Blog`目录和`/Note`目录的内容
   2. 使用`Github Actions`代替人工运行脚本，需要的同学编写完毕之后，直接 push 即可哦！
