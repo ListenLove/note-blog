@@ -33,7 +33,7 @@
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
 ## 说明
 此项目会根据用户在`Blog`和`Note`之中按目录分类相关的文档和笔记，通过编写的`node`脚本综合渲染在在项目主页目录中。适合喜欢用纯`markdown`模式下编写和管理博客笔记的同学。
-- [] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，将会提供自动打包部署到`Github Pages`的功能。
+- [ ] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，后续考虑提供自动打包部署到`Github Pages`的功能。
 ### 注意
   1. nodeJS脚本只会查找`/Blog`目录和`/Note`目录的内容
   2. 使用`Github Actions`代替人工运行脚本，需要的同学编写完毕之后，直接 push 即可哦！
