@@ -58,7 +58,7 @@ return {  count,  handleClick}
 ### reactive
 
 复杂类型（引用类型？）的数据变化更改
-`mport {reactive} from 'vue'`
+`import {reactive} from 'vue'`
 生命和定义要进行修改的复杂变量
 `variable = reactive(Object)`
 之后，修改按照普通复杂类型一样处理即可。
