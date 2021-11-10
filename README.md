@@ -22,6 +22,7 @@
 - [Webpack 基础](./Note/NodeJS/Webpack%20%E5%9F%BA%E7%A1%80.md)  
 ### React  
 - [React 学习笔记](./Note/React/React%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
+- [Svelte 快速入门教程](./Note/React/Svelte%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)  
 ### Vue  
 - [Vue3.0 学习笔记](./Note/Vue/Vue3.0%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [Vue基础知识（一）](./Note/Vue/Vue%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89.md)  
@@ -31,6 +32,10 @@
 ### 基础知识  
 - [Linux基础与使用](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E4%BD%BF%E7%94%A8.md)  
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
+### 微信小程序  
+- [微信小程序开发学习笔记](./Note/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
+### 数据库  
+- [从零开始 MongoDB](./Note/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20MongoDB.md)  
 ## 说明
 此项目会根据用户在`Blog`和`Note`之中按目录分类相关的文档和笔记，通过编写的`node`脚本综合渲染在在项目主页目录中。适合喜欢用纯`markdown`模式下编写和管理博客笔记的同学。
 - [ ] 由于当前的项目的对内容展示确实不能与`Github Pages`相比，后续考虑提供自动打包部署到`Github Pages`的功能。
