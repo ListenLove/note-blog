@@ -21,6 +21,7 @@
 - [NodeJs 简明基础知识](./Note/NodeJS/NodeJs%20%E7%AE%80%E6%98%8E%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)  
 - [Webpack 基础](./Note/NodeJS/Webpack%20%E5%9F%BA%E7%A1%80.md)  
 ### React  
+- [NextJS学习笔记](./Note/React/NextJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [React 学习笔记](./Note/React/React%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [Svelte 快速入门教程](./Note/React/Svelte%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)  
 ### Vue  
