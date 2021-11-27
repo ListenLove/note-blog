@@ -1,4 +1,5 @@
 ## Blog  
+- [Vue3+Vite 项目配置JSX](./Blog/Vue3+Vite%20%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AEJSX.md)  
 - [常用工具合集](./Blog/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86.md)  
 - [软件构思IDEA](./Blog/%E8%BD%AF%E4%BB%B6%E6%9E%84%E6%80%9DIDEA.md)  
 ## Note  
