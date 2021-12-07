@@ -24,7 +24,7 @@ import {defineConfig} from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
     // ...
-    plugins: [vue(), svgBuilder('./src/assets/icons/svg/'), vueJsx({
+    plugins: [vue(), vueJsx({
         transformOn: true,		// 将时间绑定方式进行转换 on: { click: xx } to onClick: xxx
         mergeProps: false,		// 设置不要把  class / style 属性 / onXXX 等合并为一个对象
     })],
