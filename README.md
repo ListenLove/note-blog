@@ -2,7 +2,6 @@
 ### 前端工程化  
 - [Vue3+Vite 项目配置JSX](./Blog/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/Vue3+Vite%20%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AEJSX.md)  
 - [常用工具合集](./Blog/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E5%90%88%E9%9B%86.md)  
-- [软件构思IDEA](./Blog/%E8%BD%AF%E4%BB%B6%E6%9E%84%E6%80%9DIDEA.md)  
 ## Note  
 ### HTML5  
 - [CSS3](./Note/HTML5/CSS3.md)  
@@ -29,6 +28,7 @@
 - [React 学习笔记](./Note/React/React%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [Svelte 快速入门教程](./Note/React/Svelte%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)  
 ### Vue  
+- [Vue3 源码解析](./Note/Vue/Vue3%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)  
 - [Vue3.0 学习笔记](./Note/Vue/Vue3.0%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [Vue基础知识（一）](./Note/Vue/Vue%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89.md)  
 - [Vue基础知识（二）](./Note/Vue/Vue%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%EF%BC%88%E4%BA%8C%EF%BC%89.md)  
@@ -37,8 +37,6 @@
 ### 基础知识  
 - [Linux基础与使用](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E4%BD%BF%E7%94%A8.md)  
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
-### 微信小程序  
-- [微信小程序开发学习笔记](./Note/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 ### 数据库  
 - [从零开始 MongoDB](./Note/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20MongoDB.md)  
 ### 运维部署  
