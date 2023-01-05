@@ -78,11 +78,12 @@ docker version	# docker 版本信息
 docker info		# 显示 docker 系统信息
 docker --help	# 帮助命令
 docker stats	# 查看 docker 资源占用情况命令
+docker system df # 查看镜像、容器、数据卷所占用的空间
 ```
 
 ### 镜像命令
 
-#### `docker images` 展示镜像
+#### docker images 展示镜像
 
 > ‎默认值将显示所有顶级映像、其存储库和标记以及大小。‎`docker images`
 >
@@ -102,7 +103,7 @@ docker stats	# 查看 docker 资源占用情况命令
 
 #### [docker pull 下载镜像]([Docker Hub Container Image Library | App Containerization](https://hub.docker.com/))
 
-`docker pull 镜像名[:tag]`
+`docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]`
 
 不加 tag，默认下载 最新镜像.前往标题链接地址,确定适用版本.
 
@@ -118,6 +119,10 @@ docker stats	# 查看 docker 资源占用情况命令
 | -------------- | ------- | -------------------- |
 | `--force`‎,‎`-f` |         | ‎强制删除镜像‎         |
 | `--no-prune`   |         | ‎不要删除未标记的父项‎ |
+
+#### docker image ls 列出镜像
+
+列出已经下载下来的镜像，`docker image ls`。
 
 ### 容器命令
 
@@ -294,7 +299,7 @@ Commercial support is available at
 
 ## docker 镜像
 
-### docker commit
+### docker commit（慎用）
 
 需要保存当前容器的状态,便可通过 commit 提交,来获得一个对象.
 
