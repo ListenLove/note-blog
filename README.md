@@ -38,6 +38,7 @@
 - [Linux基础与使用](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/Linux%E5%9F%BA%E7%A1%80%E4%B8%8E%E4%BD%BF%E7%94%A8.md)  
 - [快速上手 Nginx](./Note/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%20Nginx.md)  
 ### 数据库  
+- [MySQL学习笔记](./Note/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [从零开始 MongoDB](./Note/%E6%95%B0%E6%8D%AE%E5%BA%93/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%20MongoDB.md)  
 - [快学 Redis](./Note/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%BF%AB%E5%AD%A6%20Redis.md)  
 ### 运维部署  
