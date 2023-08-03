@@ -9,51 +9,51 @@
 ...
 author: listenlove
  */
-const path = require('path')
-const fs = require('fs')
+const path = require("path");
+const fs = require("fs");
 
-const md = 'README.md'    // readme 文件
-const info = 'info.md'    // 项目说明 文档，会添加到 README.md 文档底部
+const md = "README.md"; // readme 文件
+const info = "info.md"; // 项目说明 文档，会添加到 README.md 文档底部
 
-const BlogNote = ['Blog', 'Note']
-const root = path.resolve(__dirname, '..')  // 定位到项目根目录
-const mdPath = path.join(root, md)  // readme 文件路径
-const infoPath = path.join(root, info)  // info.md 文件路径
+const BlogNote = ["Blog", "Note"];
+const root = path.resolve(__dirname, ".."); // 定位到项目根目录
+const mdPath = path.join(root, md); // readme 文件路径
+const infoPath = path.join(root, info); // info.md 文件路径
+const ignorePath = ["assets"]; // 忽略不生成的文件路径
 
 // let i = fs.openSync(path.join(root, 'test.md'), 'ax+')
-let mdWriteStream       //  readme 文件写入流对象
+let mdWriteStream; //  readme 文件写入流对象
 
 fs.exists(mdPath, function (exists) {
-    if (!exists) {
-        fs.openSync(mdPath, 'ax+')      // 创建 readme 文件)
-    }
-    mdWriteStream = fs.createWriteStream(mdPath)
-})
+  if (!exists) {
+    fs.openSync(mdPath, "ax+"); // 创建 readme 文件)
+  }
+  mdWriteStream = fs.createWriteStream(mdPath);
+});
 fs.readdir(root, function (err, files) {
-    if (err) {
-        throw new Error('读取根目录错误，' + err)
-    } else {
-        // 读取 Note 目录 和 Blog 目录
-        for (let file of files) {
-            let filePath = path.join(root, file)
-            // console.log(filePath)
-            let stat = fs.lstatSync(filePath)
-            if (stat.isDirectory() && isTarget(file, BlogNote)) {
-                let parseContent = parseToList(filePath)
-                // console.log(parseContent)
-                parseDataToContent(mdWriteStream, parseContent)
-            }
-        }
-        // 添加 info.md 的内容
-        try {
-            const data = fs.readFileSync(infoPath, 'utf8')
-            mdWriteStream.write(data)
-        } catch (err) {
-            throw new Error("读取 info.md 文档错误!" + err)
-        }
-
+  if (err) {
+    throw new Error("读取根目录错误，" + err);
+  } else {
+    // 读取 Note 目录 和 Blog 目录
+    for (let file of files) {
+      let filePath = path.join(root, file);
+      // console.log(filePath);
+      let stat = fs.lstatSync(filePath);
+      if (stat.isDirectory() && isTarget(file)) {
+        let parseContent = parseToList(filePath);
+        // console.log(parseContent)
+        parseDataToContent(mdWriteStream, parseContent);
+      }
     }
-})
+    // 添加 info.md 的内容
+    try {
+      const data = fs.readFileSync(infoPath, "utf8");
+      mdWriteStream.write(data);
+    } catch (err) {
+      throw new Error("读取 info.md 文档错误!" + err);
+    }
+  }
+});
 
 /**
  * 将遍历目录整理得到的数据按 渲染 readme 文档的格式写入指定流
@@ -61,22 +61,23 @@ fs.readdir(root, function (err, files) {
  * @param contentList   整理获取博客和笔记的目录信息
  */
 function parseDataToContent(writeStream, contentList) {
-    let content = ''
-    let map = []
-    for (let i = 0; i < contentList.length; i++) {
-        let dir = path.dirname(contentList[i].path)
-        let baseName = path.basename(contentList[i].path)
-        let title = dir.replace(/[\.][\/]?/m, '')
-        if (title === '') {     // Blog 或者 Note 这样的顶层目录
-            title = addPrefixer(contentList[i], baseName)
-            content += title
-            map.push(title)
-        } else {
-            if (map.indexOf(title) === -1) map.push(title)
-            content += addPrefixer(contentList[i], baseName)
-        }
+  let content = "";
+  let map = [];
+  for (let i = 0; i < contentList.length; i++) {
+    let dir = path.dirname(contentList[i].path);
+    let baseName = path.basename(contentList[i].path);
+    let title = dir.replace(/[\.][\/]?/m, "");
+    if (title === "") {
+      // Blog 或者 Note 这样的顶层目录
+      title = addPrefixer(contentList[i], baseName);
+      content += title;
+      map.push(title);
+    } else {
+      if (map.indexOf(title) === -1) map.push(title);
+      content += addPrefixer(contentList[i], baseName);
     }
-    writeStream.write(content)
+  }
+  writeStream.write(content);
 }
 
 /**
@@ -86,20 +87,22 @@ function parseDataToContent(writeStream, contentList) {
  * @return {string}
  */
 function addPrefixer(item, titleName) {
-    let title = ''
-    if (!(item.index && item.path)) {
-        throw new Error('传入内容对象不符合解析规范')
-    }
-    for (let i = item.index; i > 0; i--) {
-        title += '#'
-    }
-    if (fs.lstatSync(item.path.replace('.', root)).isFile() && path.extname(item.path) === '.md') {
-        let newPath = encodeURI(item.path.replace(root, '.'))   // 因为可能会含有中文、空格等字符，故统一编码
-        return `- [${titleName.replace(/.md/, '')}](${newPath})  \n`
-    } else {
-        return `${title} ${titleName}  \n`
-    }
-
+  let title = "";
+  if (!(item.index && item.path)) {
+    throw new Error("传入内容对象不符合解析规范");
+  }
+  for (let i = item.index; i > 0; i--) {
+    title += "#";
+  }
+  if (
+    fs.lstatSync(item.path.replace(".", root)).isFile() &&
+    path.extname(item.path) === ".md"
+  ) {
+    let newPath = encodeURI(item.path.replace(root, ".")); // 因为可能会含有中文、空格等字符，故统一编码
+    return `- [${titleName.replace(/.md/, "")}](${newPath})  \n`;
+  } else {
+    return `${title} ${titleName}  \n`;
+  }
 }
 
 /**
@@ -108,14 +111,12 @@ function addPrefixer(item, titleName) {
  * @param targetList    目标文件列表或目录列表
  * @return {boolean}
  */
-function isTarget(source, targetList) {
-    if (targetList.find(function (value) {
-        return value === source
-    })) {
-        return true
-    } else {
-        return false
-    }
+function isTarget(source) {
+  return (
+    BlogNote.findIndex((item) => {
+      return item === source;
+    }) !== -1
+  );
 }
 
 // let i = fs.openSync(path.join(root, 'test.md'), 'ax+')
@@ -127,23 +128,25 @@ function isTarget(source, targetList) {
  * @return {*[]}
  */
 function parseToList(dir, index = 2, contents = []) {
-    let record = {
-        path: dir.replace(root, '.'),  // 替换为相对于根目录的相对路径
-        index: index,
+  let record = {
+    path: dir.replace(root, "."), // 替换为相对于根目录的相对路径
+    index: index,
+  };
+  contents.push(record);
+  let stat = fs.lstatSync(dir);
+  if (!stat.isDirectory()) {
+    return contents;
+  }
+  let newFileList = fs.readdirSync(dir);
+  for (let file of newFileList) {
+    if (file.startsWith(".")) {
+      continue;
+    } else if (ignorePath.findIndex((p) => p === file) !== -1) {
+      continue;
+    } else {
+      let newFilePath = path.join(dir, file);
+      parseToList(newFilePath, index + 1, contents);
     }
-    contents.push(record)
-    let stat = fs.lstatSync(dir)
-    if (!stat.isDirectory()) {
-        return contents
-    }
-    let newFileList = fs.readdirSync(dir)
-    for (let file of newFileList) {
-        if (file.startsWith('.')) {
-            continue
-        } else {
-            let newFilePath = path.join(dir, file)
-            parseToList(newFilePath, index + 1, contents)
-        }
-    }
-    return contents
+  }
+  return contents;
 }
