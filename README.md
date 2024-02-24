@@ -14,7 +14,6 @@
 - [JavaScript 高级编程（一）](./Note/JavaScript/JavaScript%20%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89.md)  
 - [JavaScript 高级编程（二）](./Note/JavaScript/JavaScript%20%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89.md)  
 - [JavaScript函数式编程](./Note/JavaScript/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)  
-- [TypeScript 简明知识手册](TypeScript%20简明知识手册.md)  
 - [Zepto&IScroll&Swiper&Animate](./Note/JavaScript/Zepto&IScroll&Swiper&Animate.md)  
 - [jest 前端自动化测试学习笔记](./Note/JavaScript/jest%20%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [网络编程](./Note/JavaScript/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)  
@@ -28,6 +27,9 @@
 - [React Redux 学习笔记](./Note/React/React%20Redux%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [React 学习笔记](./Note/React/React%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [Svelte 快速入门教程](./Note/React/Svelte%20%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B.md)  
+### TypeScript  
+- [TypeScript 简明知识手册](./Note/TypeScript/TypeScript%20%E7%AE%80%E6%98%8E%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C.md)  
+- [TypeScript进阶指南](./Note/TypeScript/TypeScript%E8%BF%9B%E9%98%B6%E6%8C%87%E5%8D%97.md)  
 ### Vue  
 - [Vue3 源码解析](./Note/Vue/Vue3%20%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90.md)  
 - [Vue3.0 学习笔记](./Note/Vue/Vue3.0%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
