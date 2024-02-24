@@ -14,7 +14,7 @@
 - [JavaScript 高级编程（一）](./Note/JavaScript/JavaScript%20%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89.md)  
 - [JavaScript 高级编程（二）](./Note/JavaScript/JavaScript%20%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89.md)  
 - [JavaScript函数式编程](./Note/JavaScript/JavaScript%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B.md)  
-- [TypeScript 简明知识手册](./Note/JavaScript/TypeScript%20%E7%AE%80%E6%98%8E%E7%9F%A5%E8%AF%86%E6%89%8B%E5%86%8C.md)  
+- [TypeScript 简明知识手册](TypeScript%20简明知识手册.md)  
 - [Zepto&IScroll&Swiper&Animate](./Note/JavaScript/Zepto&IScroll&Swiper&Animate.md)  
 - [jest 前端自动化测试学习笔记](./Note/JavaScript/jest%20%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.md)  
 - [网络编程](./Note/JavaScript/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)  
