@@ -1,21 +1,30 @@
-## 原始类型
-### number
-### string
-### boolean
-### null
->这里有值，但是个空值
+# TypeScript 进阶
 
+## 原始类型
+
+### number
+
+### string
+
+### boolean
+
+### null
+
+> 这里有值，但是个空值
 
 ### undefined
+
 这里没有值
 
-
 ### symbole
+
 ### bigint
+
 ```typescript
 const bigintVar2: bigint = BigInt(9007199254740991);
 const bigintVar1: bigint = 9007199254740991n;
 ```
+
 ### void
 
 TS中的特殊类型，TypeScript 的原始类型标注中也有 void，但与 JavaScript 中不同的是，这里的 void 用于描述一个内部没有 return 语句，或者没有显式 return 一个值的函数的返回值，如：
@@ -35,32 +44,28 @@ function func3() {
 ## 数组类型标注
 
 ```typescript
-const arr1: string[] = [];	// 常用
+const arr1: string[] = []; // 常用
 
-const arr2: Array<string> = [];	// 类型签名也是 string[]
+const arr2: Array<string> = []; // 类型签名也是 string[]
 ```
 
 ### 元组
 
 ```typescript
-const truple: [string, string, string] = [
-  "JavaScript",
-  "TypeScript",
-  "Go",
-]; // 元组
-console.log(truple[99])	// 报错：长度为 "3" 的元组类型 "[string, string, string]" 在索引 "99" 处没有元素。
+const truple: [string, string, string] = ["JavaScript", "TypeScript", "Go"]; // 元组
+console.log(truple[99]); // 报错：长度为 "3" 的元组类型 "[string, string, string]" 在索引 "99" 处没有元素。
 ```
 
 除了同类型的元素以外，元组内部也可以声明多个与其位置强绑定的，不同类型的元素：
 
 ```typescript
-const truple2: [string, number, boolean] = ['linbudu', 599, true];
+const truple2: [string, number, boolean] = ["linbudu", 599, true];
 ```
 
 元组也支持了在某一个位置上的可选成员：
 
 ```typescript
-const truple3: [string, number?, boolean?] = ['linbudu'];
+const truple3: [string, number?, boolean?] = ["linbudu"];
 // 下面这么写也可以
 // const arr6: [string, number?, boolean?] = ['linbudu', , ,];
 ```
@@ -75,14 +80,18 @@ type Truple4Lenght = typeof truple4.length; // type Truple4Lenght = 3 | 2 | 1
 具名元组：
 
 ```typescript
-const labeledTruple: [name: string, age: number, male: boolean] = ['linbudu', 599, true];
+const labeledTruple: [name: string, age: number, male: boolean] = [
+  "linbudu",
+  599,
+  true,
+];
 ```
 
 元祖可以检查解构赋值中可能存在的隐式越界访问：
 
 ```typescript
 const truple2: [string, number, boolean] = ["hello, world", 123, true];
-const [name, age, isMale, other] = truple2	// 报错：长度为 "3" 的元组类型 "[string, number, boolean]" 在索引 "3" 处没有元素。
+const [name, age, isMale, other] = truple2; // 报错：长度为 "3" 的元组类型 "[string, number, boolean]" 在索引 "3" 处没有元素。
 ```
 
 综上：使用元组确实能帮助我们进一步**提升数组结构的严谨性**，包括**基于位置的类型标注、避免出现越界访问**等等。
@@ -105,7 +114,6 @@ const person: IDescription = {
   age: 24,
   isMale: true,
 };
-
 ```
 
 - 每一个属性的值必须**一一对应**到接口的属性类型
@@ -129,7 +137,7 @@ const person: IDescription = {
   // 无需实现 saySomething
   id: 1024,
 };
-person.id = 123;  // error：无法为“id”赋值，因为它是只读属性
+person.id = 123; // error：无法为“id”赋值，因为它是只读属性
 ```
 
 其实在数组与元组层面也有着只读的修饰，但与对象类型有着两处不同。
@@ -153,8 +161,6 @@ person.id = 123;  // error：无法为“id”赋值，因为它是只读属性
 2. 当你不确定某个变量的具体类型，但能确定它不是原始类型，可以使用 object。但我更推荐进一步区分，也就是使用 `Record<string, unknown>` 或 `Record<string, any>` 表示对象，`unknown[]` 或 `any[]` 表示数组，`(...args: any[]) => any`表示函数这样
 3. 我们同样要避免使用`{}`。`{}`意味着任何非 `null / undefined` 的值，从这个层面上看，使用它和使用 `any` 一样恶劣。
 
-
-
 ## 字面量类型与联合类型
 
 使用联合类型加上字面量类型，就能在访问时获得精确地类型推导。
@@ -166,7 +172,7 @@ interface IRes {
   data: any;
 }
 
-declare let res: IRes;	// 没有实际值的变量，同时它也不存在于运行时中
+declare let res: IRes; // 没有实际值的变量，同时它也不存在于运行时中
 if (res.status === "success") {
 }
 ```
@@ -195,17 +201,17 @@ const str3: string = "TypeScript";
 ```typescript
 interface Tmp {
   obj: {
-    name: "linbudu",
-    age: 18
-  }
+    name: "linbudu";
+    age: 18;
+  };
 }
 
 const tmp: Tmp = {
   obj: {
     name: "linbudu",
-    age: 18
-  }
-}
+    age: 18,
+  },
+};
 ```
 
 **注意：**
@@ -245,9 +251,9 @@ interface IUserVip {
 
 declare var testUser: IUserVip;
 if (testUser.user.vip) {
-  console.log(testUser.user.expires);	// vip为true，类型收窄到VIP用户的类型
+  console.log(testUser.user.expires); // vip为true，类型收窄到VIP用户的类型
 } else {
-  console.log(testUser.user.promotion);// vip为false，类型收窄到非VIP用户的类型
+  console.log(testUser.user.promotion); // vip为false，类型收窄到非VIP用户的类型
 }
 ```
 
@@ -324,8 +330,8 @@ const enum Items {
   Bar,
   Baz,
 }
-console.log(Items.Bar);	// 1
-console.log(Items[1]);  // error：只有使用字符串文本才能访问常数枚举成员。
+console.log(Items.Bar); // 1
+console.log(Items[1]); // error：只有使用字符串文本才能访问常数枚举成员。
 ```
 
 - **只能通过枚举成员访问枚举值**（而不能通过值访问成员）
@@ -392,7 +398,7 @@ const bar: FuncFooStruct = (name) => {
 
 ```typescript
 // 没有调用 return 语句
-function foo(): void { }
+function foo(): void {}
 
 // 调用了 return 语句，但没有返回值
 function bar(): void {
@@ -427,15 +433,15 @@ function foo2(name: string, age = 18) {
 rest参数类型标注实际为一个数组：
 
 ```typescript
-function foo(arg1: string, ...rest: any[]) { }
+function foo(arg1: string, ...rest: any[]) {}
 ```
 
 还可以用元祖类型进行标注
 
 ```typescript
-function foo(arg1: string, ...rest: [number, boolean]) { }
+function foo(arg1: string, ...rest: [number, boolean]) {}
 
-foo("linbudu", 18, true)
+foo("linbudu", 18, true);
 ```
 
 ### 重载
@@ -464,9 +470,9 @@ function foo(foo: number, bar?: boolean): string | number {
     return foo * foo + 1;
   }
 }
-console.log(foo(10));	// 函数返回值number
-console.log(foo(10, true));	// 函数返回值string
-console.log(foo(10, false));	// 函数返回值number
+console.log(foo(10)); // 函数返回值number
+console.log(foo(10, true)); // 函数返回值string
+console.log(foo(10, false)); // 函数返回值number
 ```
 
 实际上，TypeScript 中的重载更像是伪重载，**它只有一个具体实现，其重载体现在方法调用的签名上而非具体实现上**。而在如 C++ 等语言中，重载体现在多个**名称一致但入参不同的函数实现上**，这才是更广义上的函数重载。
@@ -537,11 +543,11 @@ const Foo = class {
   }
 
   print(addon: string): void {
-    console.log(`${this.prop} and ${addon}`)
+    console.log(`${this.prop} and ${addon}`);
   }
-  
+
   // ...
-}
+};
 ```
 
 ### 修饰符
@@ -588,7 +594,10 @@ class Foo {
 
 ```typescript
 class Foo {
-  constructor(private prop: string, public readonly test: string) {}
+  constructor(
+    private prop: string,
+    public readonly test: string,
+  ) {}
 }
 
 const foo = new Foo("hello", "world");
@@ -621,17 +630,16 @@ foo.instanceHandler(); // instanceHandler() run
 
 ```typescript
 var Foo = /** @class */ (function () {
-    function Foo() {
-    }
-    Foo.staticHandler = function () {
-        console.log("staticHandler() run");
-    };
-    Foo.prototype.instanceHandler = function () {
-        console.log("instanceHandler() run");
-    };
-    Foo.staticStr = "1024";
-    return Foo;
-}());
+  function Foo() {}
+  Foo.staticHandler = function () {
+    console.log("staticHandler() run");
+  };
+  Foo.prototype.instanceHandler = function () {
+    console.log("instanceHandler() run");
+  };
+  Foo.staticStr = "1024";
+  return Foo;
+})();
 var foo = new Foo();
 console.log(Foo.staticStr); // 1024
 Foo.staticHandler(); // staticHandler() run
@@ -755,7 +763,7 @@ class Foo implements AbsFoo {
 
 ### unknown
 
- unknown 类型的变量可以再次赋值为任意其它类型。**在类型未知的情况下，更推荐使用 unknown 标注。**
+unknown 类型的变量可以再次赋值为任意其它类型。**在类型未知的情况下，更推荐使用 unknown 标注。**
 
 ### never
 
@@ -769,7 +777,7 @@ class Foo implements AbsFoo {
 
 ```typescript
 let unknownVar: unknown;
-(unknownVar as { foo: () => {}}).foo();
+(unknownVar as { foo: () => {} }).foo();
 ```
 
 使用方式是，**在 TypeScript 类型分析不正确或不符合预期时，将其断言为此处的正确类型**。
@@ -782,7 +790,7 @@ let unknownVar: unknown;
 const str = "hello, world";
 
 // 类型 "string" 到类型 "{ handle: () => void; }" 的转换可能是错误的，因为两种类型不能充分重叠。如果这是有意的，请先将表达式转换为 "unknown"。
-(str as { handle: () => void }).handle = () => {}; 
+(str as { handle: () => void }).handle = () => {};
 
 (str as unknown as { handle: () => void }).handle = () => {}; // ok
 ```
@@ -882,10 +890,8 @@ type StatusCode = 200 | 201 | 202 | 204 | 400 | 401 | 403 | 404 | 500;
 
 type PossibleDataTypes = string | number | (() => unknown);
 
-const status: StatusCode = 200;	// 赋值200即可满足联合类型的条件
+const status: StatusCode = 200; // 赋值200即可满足联合类型的条件
 ```
-
-
 
 ## 交叉类型
 
@@ -900,7 +906,7 @@ interface AgeStruct {
   age: number;
 }
 
-type User = NameStruct & AgeStruct;	// 对象类型的合并
+type User = NameStruct & AgeStruct; // 对象类型的合并
 
 const user: User = {
   name: "John",
@@ -932,7 +938,8 @@ type User = NameStruct & AgeStruct;
 const user: User = {
   name: "John",
   age: 20,
-  prop: {	// 对象类型内部的同名属性按交叉类型合并
+  prop: {
+    // 对象类型内部的同名属性按交叉类型合并
     desc: "A person",
     year: 2000,
   },
@@ -944,10 +951,8 @@ const user: User = {
 ```typescript
 type UnionIntersection1 = (1 | 2 | 3) & (3 | 4 | 5); // 3
 
-type UnionIntersection2 = (string | number | null) & (object | string | null);  // string | null
+type UnionIntersection2 = (string | number | null) & (object | string | null); // string | null
 ```
-
-
 
 ## 索引类型
 
@@ -980,7 +985,7 @@ const propType2 = propType[123]; // string
 
 ```typescript
 interface AllStringInterface {
-  propA: number;	// 类型“number”的属性“propA”不能赋给“string”索引类型“string”。
+  propA: number; // 类型“number”的属性“propA”不能赋给“string”索引类型“string”。
   [key: string]: string;
 }
 ```
@@ -1169,7 +1174,7 @@ isString 函数称为类型守卫，在它的返回值中，我们不再使用 b
 - input 函数的某个参数；
 - `is string`，即 **is 关键字 + 预期类型**，即如果这个函数成功返回为 true，那么 is 关键字前这个入参的类型，就会**被这个类型守卫调用方后续的类型控制流分析收集到**。
 
-###  in 与 instanceof 的类型保护
+### in 与 instanceof 的类型保护
 
 #### in
 
@@ -1340,7 +1345,7 @@ type R2 = Conditional<"hello", number, "Passed", "Rejected">; // type R2 = "Reje
 type ProcessInput<
   Input,
   SecondInput extends Input = Input,
-  ThirdInput extends Input = SecondInput
+  ThirdInput extends Input = SecondInput,
 > = number;
 ```
 
@@ -1524,10 +1529,10 @@ const addCNY = (src: CNY, target: CNY): CNY => {
   return src + target;
 };
 
-const cny = 100
-const usd = 99
+const cny = 100;
+const usd = 99;
 
-addCNY(cny, usd) // Ok, TS的结构化类型没有报任何问题
+addCNY(cny, usd); // Ok, TS的结构化类型没有报任何问题
 ```
 
 C++、Java、Rust 等是标称类型系统的语言中将会提示错误，因此标称类型系统更能**限制了数据的可用操作与实际意义**。
@@ -1580,76 +1585,3 @@ type TypeChain = never extends "linbudu"
     : 1
   : 0;
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
